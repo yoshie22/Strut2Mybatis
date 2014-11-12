@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+  "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pkg.mybatis.employee-mapper">
+  <select id="selectOne" resultType="pkg.mybatis.Employee">
+	SELECT * FROM Employee where Employee_Id = #{id}
+  </select>
+
+   <select id="selectAll" resultType="pkg.mybatis.Employee">
+	SELECT * FROM Employee
+  </select>
+
+  <insert id="insert">
+  insert into Employee(Employee_Id,name,Department_ID)
+  values (#{Employee_Id},#{name},#{Department_ID})
+  </insert>
+
+  <update id="update">
+  update Employee set
+  	name=#{name},
+  	Department_ID=#{Department_ID}
+  	where Employee_Id=#{Employee_Id}
+  </update>
+
+  <delete id="delete">
+  delete from Employee
+  where Employee_Id=#{Employee_Id}
+  </delete>
+
+</mapper>
